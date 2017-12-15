@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class App extends Component {
   render() {
@@ -7,9 +8,9 @@ class App extends Component {
           <header className='mdc-toolbar'>
             <div className='mdc-toolbar__row'>
               <section className='mdc-toolbar__section mdc-toolbar__section--align-start'>
-                <span className='mdc-toolbar__title'>
+                <Link to='/' className='mdc-toolbar__title' style={{ color: 'white' }}>
                   Blue Roof
-                </span>
+                </Link>
               </section>
             </div>
           </header>
