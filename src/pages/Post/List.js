@@ -42,14 +42,30 @@ class List extends Component {
     } else {
       return (
           <div>
-            <Title title='文章列表' />
-            <ul>
-            {posts.map(post => (
-                <li key={post.title}>
-                {post.title} {post.content}
-                </li>
-            ))}
-            </ul>
+            <div className='mdc-layout-grid'>
+              <div className='mdc-layout-grid__inner'>
+                <div className='mdc-layout-grid__cell'></div>
+                <div className='mdc-layout-grid__cell'>
+                  <Title title='文章列表' />
+                  {posts.map(post => (
+                      <div className='mdc-card' key={post.title}>
+                        <section className='mdc-card__primary'>
+                          <h1 className='mdc-card__title mdc-card__title--large'>
+                            {post.title}
+                          </h1>
+                          <h2 className='mdc-card__subtitle'>
+                            {post.author}
+                          </h2>
+                        </section>
+                        <section className='mdc-card__supporting-text'>
+                          {post.content}
+                        </section>
+                      </div>
+                  ))}
+                </div>
+                <div className='mdc-layout-grid__cell'></div>
+              </div>
+            </div>
             <Link to='/post/add' className='mdc-fab material-icons app-fab--absolute'>
               <span className='mdc-fab__icon'>
                 <img src={AddLogo} alt='Add' />
