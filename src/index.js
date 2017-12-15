@@ -1,16 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { HashRouter, Route, Switch } from 'react-router-dom'
+import { HashRouter, Route } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker'
 import App from './pages/App'
 import Home from './pages/Home'
 
+import './index.css'
+
 ReactDOM.render(
     <HashRouter>
-      <div>
-        <App />
+      <App>
         <Route path='/' component={Home} />
-      </div>
+      </App>
     </HashRouter>
     , document.getElementById('root'))
 registerServiceWorker()
