@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Title } from '../../components'
-import AddLogo from './ic_note_add_white_24px.svg'
-import './List.css'
+import AddLogo from './asset/img/ic_note_add_white_24px.svg'
 
 class List extends Component {
     constructor(props) {
