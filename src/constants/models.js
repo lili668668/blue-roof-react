@@ -1,9 +1,9 @@
 import Immutable from 'immutable'
 
-export const ListPostState = Immutable.fromJS({
-  title: '',
-  author: '',
-  content: '',
-  created: Date.now(),
-  updated: Date.now()
+export const PostState = Immutable.fromJS({
+  posts: []
+})
+
+export const UiState = Immutable.fromJS({
+  isLoaded: false
 })

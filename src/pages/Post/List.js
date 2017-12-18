@@ -1,78 +1,54 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import { Title, CircularProgress } from '../../components'
 import AddLogo from './asset/img/ic_note_add_white_24px.svg'
 
-import config from '../../config.js'
-
 class List extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      error: null,
-      isLoaded: false,
-      posts: []
-    }
-  }
-
-  componentDidMount() {
-    fetch(`http://${config.api_host}:${config.api_port}/api/mock_posts`)
-    .then(res => res.json())
-    .then((result) => {
-        this.setState({
-          isLoaded: true,
-          posts: result
-        })
-      },
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        })
-      }
-    )
+  static propTypes = {
+    isLoaded: PropTypes.bool,
+    posts: PropTypes.array
   }
 
   render() {
-    const { error, isLoaded, posts } = this.state
-    if (error) {
-      return <div>Error: {error.message}</div>
-    } else if (!isLoaded) {
+    if (!isLoaded) {
       return <CircularProgress />
     } else {
       return (
-          <div>
-            <div className='mdc-layout-grid'>
-              <div className='mdc-layout-grid__inner'>
-                <div className='mdc-layout-grid__cell'></div>
-                <div className='mdc-layout-grid__cell'>
-                  <Title title='文章列表' />
-                  {posts.map(post => (
-                      <div className='mdc-card' key={post.title}>
-                        <section className='mdc-card__primary'>
-                          <h1 className='mdc-card__title mdc-card__title--large'>
-                            {post.title}
-                          </h1>
-                          <h2 className='mdc-card__subtitle'>
-                            {post.author}
-                          </h2>
-                        </section>
-                        <section className='mdc-card__supporting-text'>
-                          {post.content}
-                        </section>
-                      </div>
-                  ))}
-                </div>
-                <div className='mdc-layout-grid__cell'></div>
+        <div>
+          <div className='mdc-layout-grid'>
+            <div className='mdc-layout-grid__inner'>
+              <div className='mdc-layout-grid__cell'></div>
+              <div className='mdc-layout-grid__cell'>
+                <Title title='文章列表' />
+                {
+                  posts.map((post, index) => (
+                    <div className='mdc-card' key={index}>
+                      <section className='mdc-card__primary'>
+                        <h1 className='mdc-card__title mdc-card__title--large'>
+                          {post.get('title')}
+                        </h1>
+                        <h2 className='mdc-card__subtitle'>
+                          {post.get('author')}
+                        </h2>
+                      </section>
+                      <section className='mdc-card__supporting-text'>
+                        {post.get('content')}
+                      </section>
+                    </div>
+                  )).toJS()
+                }
               </div>
+              <div className='mdc-layout-grid__cell'></div>
             </div>
-            <Link to='/post/add' className='mdc-fab material-icons app-fab--absolute'>
-              <span className='mdc-fab__icon'>
-                <img src={AddLogo} alt='Add' />
-              </span>
-            </Link>
           </div>
+          <Link to='/post/add' className='mdc-fab material-icons app-fab--absolute'>
+            <span className='mdc-fab__icon'>
+              <img src={AddLogo} alt='Add' />
+            </span>
+          </Link>
+        </div>
           )
     }
   }

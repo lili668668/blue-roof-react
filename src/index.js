@@ -4,9 +4,8 @@ import { HashRouter, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import registerServiceWorker from './registerServiceWorker'
 import store from './store'
-import Nav from './pages/Nav'
-import Home from './pages/Home'
-import * as Post from './pages/Post'
+import { Nav } from './components'
+import { Home, Post } from './pages'
 
 import './index.css'
 
