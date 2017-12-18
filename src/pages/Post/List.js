@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import { Title } from '../../components'
+import { Title, CircularProgress } from '../../components'
 import AddLogo from './asset/img/ic_note_add_white_24px.svg'
 
 class List extends Component {
@@ -37,7 +37,7 @@ class List extends Component {
     if (error) {
       return <div>Error: {error.message}</div>
     } else if (!isLoaded) {
-      return <div>Loading...</div>
+      return <CircularProgress />
     } else {
       return (
           <div>
