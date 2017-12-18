@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom'
 import { Title, CircularProgress } from '../../components'
 import AddLogo from './asset/img/ic_note_add_white_24px.svg'
 
+import config from '../../config.js'
+
 class List extends Component {
-    constructor(props) {
+  constructor(props) {
     super(props)
     this.state = {
       error: null,
@@ -15,21 +17,21 @@ class List extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/mock_posts')
-      .then(res => res.json())
-      .then((result) => {
-          this.setState({
-            isLoaded: true,
-            posts: result
-          })
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          })
-        }
-      )
+    fetch(`http://${config.api_host}:${config.api_port}/api/mock_posts`)
+    .then(res => res.json())
+    .then((result) => {
+        this.setState({
+          isLoaded: true,
+          posts: result
+        })
+      },
+      (error) => {
+        this.setState({
+          isLoaded: true,
+          error
+        })
+      }
+    )
   }
 
   render() {
