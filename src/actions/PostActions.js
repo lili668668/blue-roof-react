@@ -1,5 +1,5 @@
 import config from '../config'
-import 'axios'
+import axios from 'axios'
 import {
   LIST_POST_LOADING,
   LIST_POST_SUCCESS,
@@ -12,16 +12,15 @@ import {
   loaded
 } from './UiActions'
 
-export const listPost = () => (
-  (dispatch) => {
+export const ListPost = () => {
+  return (dispatch) => {
     dispatch({ type: LIST_POST_LOADING })
     dispatch(loading())
-    axios.get(`http://${config.api_hots}:${config.api_port}/api/posts`)
-    .then(res => res.json())
-    .then(json => {
-      dispatch({ type: LIST_POST_SUCCESS, payload: { data: json } })
+    axios.get(`http://${config.api_host}:${config.api_port}/api/mock_posts`)
+    .then(res => {
+      dispatch({ type: LIST_POST_SUCCESS, payload: { data: res.data } })
       dispatch(loaded())
     })
     .catch(() => dispatch({ type: LIST_POST_FAIL }))
   }
-)
+}

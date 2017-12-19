@@ -2,17 +2,16 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-import { Title, CircularProgress } from '../../components'
+import { Title, CircularProgress, PostCard } from '../../components'
 import AddLogo from './asset/img/ic_note_add_white_24px.svg'
 
 class List extends Component {
-  static propTypes = {
-    isLoaded: PropTypes.bool,
-    posts: PropTypes.array
+  componentDidMount() {
+    this.props.listPost()
   }
 
   render() {
-    if (!isLoaded) {
+    if (!this.props.isLoaded) {
       return <CircularProgress />
     } else {
       return (
@@ -23,20 +22,8 @@ class List extends Component {
               <div className='mdc-layout-grid__cell'>
                 <Title title='文章列表' />
                 {
-                  posts.map((post, index) => (
-                    <div className='mdc-card' key={index}>
-                      <section className='mdc-card__primary'>
-                        <h1 className='mdc-card__title mdc-card__title--large'>
-                          {post.get('title')}
-                        </h1>
-                        <h2 className='mdc-card__subtitle'>
-                          {post.get('author')}
-                        </h2>
-                      </section>
-                      <section className='mdc-card__supporting-text'>
-                        {post.get('content')}
-                      </section>
-                    </div>
+                  this.props.posts.map((post, index) => (
+                    <PostCard key={index} title={post.get('title')} author={post.get('author')} content={post.get('content')} />
                   )).toJS()
                 }
               </div>

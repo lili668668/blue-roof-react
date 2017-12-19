@@ -6,6 +6,7 @@ import registerServiceWorker from './registerServiceWorker'
 import store from './store'
 import { Nav } from './components'
 import { Home, Post } from './pages'
+import { PostContainer } from './containers'
 
 import './index.css'
 
@@ -15,7 +16,7 @@ ReactDOM.render(
         <div>
           <Route path='/' component={Nav} />
           <Route exact path='/' component={Home} />
-          <Route exact path='/posts' component={Post.List} />
+          <Route exact path='/posts' component={PostContainer.ListContainer} />
           <Route exact path='/post/add' component={Post.Add} />
         </div>
       </HashRouter>

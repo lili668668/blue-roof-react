@@ -19,6 +19,6 @@ const UiReducers = handleActions({
       true
     )
   )
-})
+}, UiState)
 
 export default UiReducers

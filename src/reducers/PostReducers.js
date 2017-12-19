@@ -8,17 +8,12 @@ import {
   ADD_POST
 } from '../constants/actionTypes'
 
-const postReducers = handleActions({
+const PostReducers = handleActions({
   LIST_POST_SUCCESS: (state, { payload }) => (
     state.merge({
-      data: payload.data
-    })
-  ),
-  ADD_POST: (state) => (
-    state.merge({
-      data: payload.data
+      posts: payload.data
     })
   )
 }, PostState)
 
-export default postReducers
+export default PostReducers
