@@ -9,7 +9,6 @@ class PostCard extends Component {
   }
 
   render() {
-    console.log(this.props.index)
     return (
           <div className='mdc-card'>
             <section className='mdc-card__primary'>
