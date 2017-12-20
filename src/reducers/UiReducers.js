@@ -1,11 +1,6 @@
 import { handleActions } from 'redux-actions'
 import { UiState } from '../constants/models'
 
-import {
-  LOADING,
-  LOADED
-} from '../constants/actionTypes'
-
 const UiReducers = handleActions({
   LOADING: state => (
     state.set(

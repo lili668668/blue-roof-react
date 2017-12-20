@@ -14,7 +14,6 @@ export default connect(
     )
   }),
   (stateProps, dispatchProps, ownProps) => {
-    const { posts, isLoaded } = stateProps
     const { listPost } = dispatchProps
     return Object.assign({}, stateProps, dispatchProps, ownProps, {
       listPost: listPost()

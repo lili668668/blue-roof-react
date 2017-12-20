@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class PostCard extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   static propTypes = {
     title: PropTypes.string,
     author: PropTypes.string,
