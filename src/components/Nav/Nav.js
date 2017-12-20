@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Toolbar, ToolbarRow, ToolbarSection, ToolbarTitle } from 'react-mdc-web/lib'
 
 class Nav extends Component {
   render() {
     return (
-        <div>
-          <header className='mdc-toolbar'>
-            <div className='mdc-toolbar__row'>
-              <section className='mdc-toolbar__section mdc-toolbar__section--align-start'>
+        <Toolbar>
+          <ToolbarRow>
+            <ToolbarSection align='start'>
+              <ToolbarTitle>
                 <Link to='/' className='mdc-toolbar__title' style={{ color: 'white' }}>
                   Blue Roof
                 </Link>
-              </section>
-            </div>
-          </header>
-        </div>
+              </ToolbarTitle>
+            </ToolbarSection>
+          </ToolbarRow>
+        </Toolbar>
         )
   }
 }

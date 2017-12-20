@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Card, CardHeader, CardTitle, CardSubtitle, CardText } from 'react-mdc-web/lib'
 
 class PostCard extends Component {
   static propTypes = {
@@ -10,19 +11,19 @@ class PostCard extends Component {
 
   render() {
     return (
-          <div className='mdc-card'>
-            <section className='mdc-card__primary'>
-              <h1 className='mdc-card__title mdc-card__title--large'>
-                {this.props.title}
-              </h1>
-              <h2 className='mdc-card__subtitle'>
-                {this.props.author}
-              </h2>
-            </section>
-            <section className='mdc-card__supporting-text'>
-              {this.props.content}
-            </section>
-          </div>
+      <Card>
+        <CardHeader>
+          <CardTitle large>
+            {this.props.title}
+          </CardTitle>
+          <CardSubtitle>
+            {this.props.author}
+          </CardSubtitle>
+        </CardHeader>
+        <CardText>
+          {this.props.content}
+        </CardText>
+      </Card>
         )
   }
 }

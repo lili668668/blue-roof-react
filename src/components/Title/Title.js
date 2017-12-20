@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Display3 } from 'react-mdc-web/lib'
 
 class Title extends Component {
   static propTypes = {
@@ -8,7 +9,7 @@ class Title extends Component {
 
   render() {
     return (
-        <h1 className='mdc-typography--display3 text-center'>{ this.props.title }</h1>
+        <Display3 className='text-center'>{ this.props.title }</Display3>
         )
   }
 }

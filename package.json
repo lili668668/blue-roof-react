@@ -15,7 +15,8 @@
     "redux-actions": "^2.2.1",
     "redux-immutable": "^4.0.0",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+	"react-mdc-web": "^0.17.0"
   },
   "proxy": "http://localhost:3000",
   "scripts": {

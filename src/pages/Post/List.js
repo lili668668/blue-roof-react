@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Grid, Cell, Icon } from 'react-mdc-web/lib'
 
 import { Title, CircularProgress, PostCard } from '../../components'
-import AddLogo from './asset/img/ic_note_add_white_24px.svg'
 
 class List extends Component {
   componentDidMount() {
@@ -10,33 +10,30 @@ class List extends Component {
   }
 
   render() {
-    if (!this.props.isLoaded) {
-      return <CircularProgress />
-    } else {
       return (
         <div>
-          <div className='mdc-layout-grid'>
-            <div className='mdc-layout-grid__inner'>
-              <div className='mdc-layout-grid__cell'></div>
-              <div className='mdc-layout-grid__cell'>
-                <Title title='文章列表' />
-                {
+          <Grid>
+            <Cell col={4}></Cell>
+            <Cell col={4}>
+              <Title title='文章列表' />
+              {!this.props.isLoaded ? (
+                  <CircularProgress />
+                ) : (
                   this.props.posts.map((post, index) => (
                     <PostCard key={index} title={post.get('title')} author={post.get('author')} content={post.get('content')} />
                   )).toJS()
-                }
-              </div>
-              <div className='mdc-layout-grid__cell'></div>
-            </div>
-          </div>
-          <Link to='/post/add' className='mdc-fab material-icons app-fab--absolute'>
+                )
+              }
+            </Cell>
+            <Cell col={4}></Cell>
+          </Grid>
+          <Link to='/post/add' className='mdc-fab app-fab--absolute'>
             <span className='mdc-fab__icon'>
-              <img src={AddLogo} alt='Add' />
+              <Icon name='add' />
             </span>
           </Link>
         </div>
           )
-    }
   }
 }
 
