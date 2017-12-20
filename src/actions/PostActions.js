@@ -1,26 +1,31 @@
 import config from '../config'
 import axios from 'axios'
 import {
-  LIST_POST_LOADING,
-  LIST_POST_SUCCESS,
-  LIST_POST_FAIL,
-  ADD_POST
+  LIST_POSTS
 } from '../constants/actionTypes'
 
 import {
-  loading,
-  loaded
-} from './UiActions'
+  loaded,
+  loading
+} from '../actions/UiActions'
 
-export const ListPost = () => {
+export const ListPosts = () => {
   return (dispatch) => {
-    dispatch({ type: LIST_POST_LOADING })
     dispatch(loading())
     axios.get(`http://${config.api_host}:${config.api_port}/api/mock_posts`)
     .then(res => {
-      dispatch({ type: LIST_POST_SUCCESS, payload: { data: res.data } })
+      dispatch({ type: LIST_POSTS, payload: { data: res.data } })
       dispatch(loaded())
     })
-    .catch(() => dispatch({ type: LIST_POST_FAIL }))
+  }
+}
+
+export const AddPost = (post) => {
+  return (dispatch) => {
+    dispatch(loading())
+    axios.post(`http://${config.api_host}:${config.api_port}/api/post`, post)
+      .then(res => {
+        dispatch(loaded())
+      })
   }
 }

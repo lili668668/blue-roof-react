@@ -6,7 +6,7 @@ import AddLogo from './asset/img/ic_note_add_white_24px.svg'
 
 class List extends Component {
   componentDidMount() {
-    this.props.listPost()
+    this.props.listPosts()
   }
 
   render() {
