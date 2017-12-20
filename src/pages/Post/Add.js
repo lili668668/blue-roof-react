@@ -11,7 +11,8 @@ class Add extends Component {
         <Grid item xs={4}></Grid>
         <Grid item xs={4}>
           <Title title='加入文章' />
-          <TextField label='標題' margin='normal' />
+          <TextField label='標題' margin='normal' fullWidth required />
+          <TextField label='內容' margin='normal' fullWidth required multiline />
         </Grid>
         <Grid item xs={4}></Grid>
       </Grid>
