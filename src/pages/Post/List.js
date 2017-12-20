@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, Cell, Icon } from 'react-mdc-web/lib'
+import { Grid, Button } from 'material-ui'
+import { Add } from 'material-ui-icons'
 
 import { Title, CircularProgress, PostCard } from '../../components'
 
@@ -12,9 +13,9 @@ class List extends Component {
   render() {
       return (
         <div>
-          <Grid>
-            <Cell col={4}></Cell>
-            <Cell col={4}>
+          <Grid container spacing={0}>
+            <Grid item xs={4}></Grid>
+            <Grid item xs={4}>
               <Title title='文章列表' />
               {!this.props.isLoaded ? (
                   <CircularProgress />
@@ -24,14 +25,14 @@ class List extends Component {
                   )).toJS()
                 )
               }
-            </Cell>
-            <Cell col={4}></Cell>
+            </Grid>
+            <Grid item xs={4}></Grid>
           </Grid>
-          <Link to='/post/add' className='mdc-fab app-fab--absolute'>
-            <span className='mdc-fab__icon'>
-              <Icon name='add' />
-            </span>
-          </Link>
+          <div className='app-fab--absolute'> 
+            <Button fab color='primary' aria-label='add' component={Link} to='/post/add'>
+              <Add />
+            </Button>
+          </div>
         </div>
           )
   }

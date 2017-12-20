@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { Button, Typography } from 'material-ui'
 
 import { Title } from '../../components'
 
@@ -8,11 +9,11 @@ class Home extends Component {
     return (
         <div>
           <Title title='部落格owo' />
-          <div className='text-center'>
-            <Link to='/posts' className='mdc-typography--display2 mdc-button' style={{ minHeight: 50 + 'px' }}>
+          <Typography type='display2' align='center'>
+            <Button color='primary' component={Link} to='/posts' style={{fontSize: 50 + 'px', margin: 30 + 'px'}}>
               文章列表
-            </Link>
-          </div>
+            </Button>
+          </Typography>
         </div>
         )
   }

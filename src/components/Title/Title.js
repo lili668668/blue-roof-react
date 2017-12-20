@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Display3 } from 'react-mdc-web/lib'
+import { Typography } from 'material-ui'
 
 class Title extends Component {
   static propTypes = {
@@ -9,7 +9,7 @@ class Title extends Component {
 
   render() {
     return (
-        <Display3 className='text-center'>{ this.props.title }</Display3>
+        <Typography type='display3' align='center' style={{ padding: 30 + 'px' }}>{ this.props.title }</Typography>
         )
   }
 }

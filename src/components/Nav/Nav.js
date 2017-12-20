@@ -5,12 +5,10 @@ import { AppBar, Toolbar, Typography } from 'material-ui'
 class Nav extends Component {
   render() {
     return (
-        <AppBar>
+        <AppBar position='static'>
           <Toolbar>
-            <Typography type='title'>
-              <Link to='/' style={{ color: 'white' }}>
-                Blue Roof
-              </Link>
+            <Typography type='title' component={Link} to='/' style={{ color: 'white', textDecoration: 'none' }}>
+              Blue Roof
             </Typography>
           </Toolbar>
         </AppBar>

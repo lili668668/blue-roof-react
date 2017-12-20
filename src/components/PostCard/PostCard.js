@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Card, CardHeader, CardTitle, CardSubtitle, CardText } from 'react-mdc-web/lib'
+import Card, { CardContent } from 'material-ui/Card'
+import { Typography } from 'material-ui'
 
 class PostCard extends Component {
   static propTypes = {
@@ -11,18 +12,18 @@ class PostCard extends Component {
 
   render() {
     return (
-      <Card>
-        <CardHeader>
-          <CardTitle large>
+      <Card style={{ margin: 24 + 'px' }}>
+        <CardContent>
+          <Typography type='headline' component='h1'>
             {this.props.title}
-          </CardTitle>
-          <CardSubtitle>
+          </Typography>
+          <Typography type='subheading' component='h2'>
             {this.props.author}
-          </CardSubtitle>
-        </CardHeader>
-        <CardText>
-          {this.props.content}
-        </CardText>
+          </Typography>
+          <Typography component='p'>
+            {this.props.content}
+          </Typography>
+        </CardContent>
       </Card>
         )
   }
