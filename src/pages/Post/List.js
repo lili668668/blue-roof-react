@@ -14,9 +14,11 @@ class List extends Component {
       return (
         <div>
           <Grid container spacing={0}>
-            <Grid item xs={4}></Grid>
-            <Grid item xs={4}>
-              <Title title='文章列表' />
+            <Grid item xs={1} sm={4}></Grid>
+            <Grid item xs={10} sm={4}>
+              <Title>
+                文章列表
+              </Title>
               {!this.props.isLoaded ? (
                   <CircularProgress />
                 ) : (
@@ -26,7 +28,7 @@ class List extends Component {
                 )
               }
             </Grid>
-            <Grid item xs={4}></Grid>
+            <Grid item xs={1} sm={4}></Grid>
           </Grid>
           <div className='app-fab--absolute'> 
             <Button fab color='primary' aria-label='add' component={Link} to='/post/add'>

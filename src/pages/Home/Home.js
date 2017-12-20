@@ -8,7 +8,9 @@ class Home extends Component {
   render() {
     return (
         <div>
-          <Title title='部落格owo' />
+          <Title>
+            部落格owo
+          </Title>
           <Typography type='display2' align='center'>
             <Button color='primary' component={Link} to='/posts' style={{fontSize: 50 + 'px', margin: 30 + 'px'}}>
               文章列表
