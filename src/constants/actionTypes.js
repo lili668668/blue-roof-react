@@ -4,3 +4,6 @@ export const CONTENT_CHANGE = 'CONTENT_CHANGE'
 
 export const LOADING = 'LOADING'
 export const LOADED = 'LOADED'
+export const UNSAVE = 'UNSAVE'
+export const SAVED = 'SAVED'
+export const SHOWFORM = 'SHOWFORM'

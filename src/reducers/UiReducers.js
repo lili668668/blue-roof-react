@@ -13,6 +13,24 @@ const UiReducers = handleActions({
       'isLoaded',
       true
     )
+  ),
+  UNSAVE: state => (
+    state.set(
+      'isSaved',
+      false
+    )
+  ),
+  SAVED: state => (
+    state.set(
+      'isSaved',
+      true
+    )
+  ),
+  SHOWFORM: state => (
+    state.set({
+      isLoaded: true,
+      isSaved: false
+    })
   )
 }, UiState)
 

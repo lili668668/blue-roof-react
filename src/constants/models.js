@@ -6,5 +6,6 @@ export const PostState = Immutable.fromJS({
 })
 
 export const UiState = Immutable.fromJS({
-  isLoaded: false
+  isLoaded: false,
+  isSaved: false
 })

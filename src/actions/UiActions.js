@@ -1,8 +1,14 @@
 import { createAction } from 'redux-actions'
 import {
   LOADING,
-  LOADED
+  LOADED,
+  UNSAVE,
+  SAVED,
+  SHOWFORM
 } from '../constants/actionTypes'
 
-export const loading = createAction(LOADING)
-export const loaded = createAction(LOADED)
+export const Loading = createAction(LOADING)
+export const Loaded = createAction(LOADED)
+export const Unsave = createAction(UNSAVE)
+export const Saved = createAction(SAVED)
+export const ShowForm = createAction(SHOWFORM)

@@ -7,27 +7,30 @@ import {
 } from '../constants/actionTypes'
 
 import {
-  loaded,
-  loading
+  Loaded,
+  Loading,
+  Unsave,
+  Saved,
+  ShowForm
 } from '../actions/UiActions'
 
 export const ListPosts = () => {
   return (dispatch) => {
-    dispatch(loading())
+    dispatch(Loading())
     axios.get(`http://${config.api_host}:${config.api_port}/api/mock_posts`)
     .then(res => {
       dispatch({ type: LIST_POSTS, payload: { posts: res.data } })
-      dispatch(loaded())
+      dispatch(Loaded())
     })
   }
 }
 
 export const AddPost = (post) => {
   return (dispatch) => {
-    dispatch(loading())
+    dispatch(Loading())
     axios.post(`http://${config.api_host}:${config.api_port}/api/post`, post)
       .then(() => {
-        dispatch(loaded())
+        dispatch(Saved())
       })
   }
 }
