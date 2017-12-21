@@ -17,7 +17,7 @@ ReactDOM.render(
           <Route path='/' component={Nav} />
           <Route exact path='/' component={Home} />
           <Route exact path='/posts' component={PostContainer.ListContainer} />
-          <Route exact path='/post/add' component={Post.Add} />
+          <Route exact path='/post/add' component={PostContainer.AddContainer} />
         </div>
       </HashRouter>
     </Provider>

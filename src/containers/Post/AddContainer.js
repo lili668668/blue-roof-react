@@ -9,14 +9,15 @@ export default connect(
     isLoaded: state.getIn(['ui', 'isLoaded'])
   }),
   (dispatch) => ({
-    addPost: () => () => (
-      dispatch(PostActions.ListPosts())
+    addPost: (post) => () => (
+      dispatch(PostActions.AddPost(post))
     )
   }),
   (stateProps, dispatchProps, ownProps) => {
-    const { listPosts } = dispatchProps
+    const { post } = stateProps
+    const { addPost } = dispatchProps
     return Object.assign({}, stateProps, dispatchProps, ownProps, {
-      listPosts: listPosts()
+      addPost: addPost(post)
     })
   }
 )(Post.Add)

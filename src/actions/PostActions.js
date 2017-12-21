@@ -26,7 +26,7 @@ export const AddPost = (post) => {
   return (dispatch) => {
     dispatch(loading())
     axios.post(`http://${config.api_host}:${config.api_port}/api/post`, post)
-      .then(res => {
+      .then(() => {
         dispatch(loaded())
       })
   }
