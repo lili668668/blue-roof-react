@@ -27,7 +27,7 @@ export default connect(
   }),
   (stateProps, dispatchProps, ownProps) => {
     const { title, author, content } = stateProps
-    const { addPost, showForm, testclick } = dispatchProps
+    const { addPost, showForm } = dispatchProps
     return Object.assign({}, stateProps, dispatchProps, ownProps, {
       addPost: addPost({title: title, author: author, content: content}),
       showForm: showForm()

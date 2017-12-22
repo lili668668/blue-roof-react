@@ -9,9 +9,7 @@ import {
 import {
   Loaded,
   Loading,
-  Unsave,
-  Saved,
-  ShowForm
+  Saved
 } from '../actions/UiActions'
 
 export const ListPosts = () => {
