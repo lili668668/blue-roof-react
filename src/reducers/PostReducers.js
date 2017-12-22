@@ -9,7 +9,13 @@ const PostReducers = handleActions({
   ),
   TITLE_CHANGE: (state, { payload }) => (
     state.merge({
-      title: payload.title
+      title: payload.title,
+      titleError: payload.titleError
+    })
+  ),
+  INITIAL_FORM: state => (
+    state.merge({
+      titleError: ''
     })
   ),
   CONTENT_CHANGE: (state, { payload }) => (
