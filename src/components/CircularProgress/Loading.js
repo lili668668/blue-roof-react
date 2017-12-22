@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import CircularProgress from './CircularProgress'
 
 class Loading extends Component {
-  static propTypes = {
-    isLoaded: PropTypes.bool
-  }
 
   render() {
     return (

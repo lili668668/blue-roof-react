@@ -1,16 +1,9 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { Typography } from 'material-ui'
 import config from '../../config'
 
 class Error extends Component {
-  static propTypes = {
-    isError: PropTypes.bool,
-    errorMsg: PropTypes.string
-  }
-
   render() {
-    console.log(this.props)
     return (
       <div>
         {this.props.isError ? (

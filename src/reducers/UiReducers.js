@@ -3,16 +3,14 @@ import { UiState } from '../constants/models/UiModels'
 
 const UiReducers = handleActions({
   LOADING: state => (
-    state.set(
-      'isLoaded',
-      false
-    )
+    state.merge({
+      isLoaded: false
+    })
   ),
   LOADED: state => (
-    state.set(
-      'isLoaded',
-      true
-    )
+    state.merge({
+      isLoaded: true
+    })
   ),
   NO_ERROR: state => (
     state.merge({

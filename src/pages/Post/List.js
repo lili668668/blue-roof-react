@@ -13,6 +13,7 @@ class List extends Component {
   }
 
   render() {
+    console.log(this.props)
       return (
         <div>
           <Grid container spacing={0}>
@@ -22,7 +23,7 @@ class List extends Component {
                 文章列表
               </Title>
               <Error isError={this.props.isError} errorMsg={this.props.errorMsg}>
-                <Loading>
+                <Loading isLoaded={this.props.isLoaded}>
                 {
                   this.props.posts.map((post, index) => (
                       <PostCard key={index} index={index} postId={post.get('_id')} title={post.get('title')} author={post.get('author')} content={post.get('content')} onDelete={(id, index) => this.props.deletePost(id, index)} />

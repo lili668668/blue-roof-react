@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Grid, TextField, Button, Typography } from 'material-ui'
-import { FormHelperText } from 'material-ui/Form'
+import { Grid, Button, Typography } from 'material-ui'
 import { Save, Delete } from 'material-ui-icons'
 
 import { Title } from '../../components'
+import { PostFormContainer } from '../../containers/Post'
 
 class Add extends Component {
-  componentDidMount() {
-    this.props.initialForm()
-  }
   render() {
       return (
         <Grid container spacing={0}>
@@ -19,9 +16,7 @@ class Add extends Component {
               加入文章
             </Title>
             <div>
-              <TextField label='標題' margin='normal' required fullWidth error={this.props.titleError !== ''} onChange={this.props.titleChange} />
-              <FormHelperText error>{ this.props.titleError }</FormHelperText>
-              <TextField label='內容' margin='normal' fullWidth multiline onChange={this.props.contentChange} />
+            <PostFormContainer />
               <Grid container spacing={0} style={{ marginTop: 30 + 'px' }}>
                 <Grid item xs={1}></Grid>
                 <Grid item xs={5}>
