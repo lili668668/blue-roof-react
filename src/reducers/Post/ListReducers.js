@@ -6,6 +6,9 @@ const ListReducers = handleActions({
     state.merge({
       posts: payload.posts
     })
+  ),
+  DELETE_POST: (state, { payload }) => (
+    state.set('posts', state.get('posts').splice(payload.index, 1))
   )
 }, ListState)
 

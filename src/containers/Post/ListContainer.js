@@ -11,6 +11,9 @@ export default connect(
   (dispatch) => ({
     listPosts: () => () => (
       dispatch(ListActions.ListPosts())
+    ),
+    deletePost: (id, index) => () => (
+      dispatch(ListActions.DeletePost(id, index))
     )
   }),
   (stateProps, dispatchProps, ownProps) => {

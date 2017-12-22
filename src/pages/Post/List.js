@@ -23,7 +23,8 @@ class List extends Component {
                   <CircularProgress />
                 ) : (
                   this.props.posts.map((post, index) => (
-                    <PostCard key={index} title={post.get('title')} author={post.get('author')} content={post.get('content')} />
+                      
+                      <PostCard key={index} index={index} postId={post.get('_id')} title={post.get('title')} author={post.get('author')} content={post.get('content')} onDelete={(id, index) => this.props.deletePost(id, index)} />
                   )).toJS()
                 )
               }
