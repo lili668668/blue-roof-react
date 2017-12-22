@@ -1,4 +1,4 @@
-import * as PostActions from './PostActions'
+import * as PostActions from './Post'
 import * as UiActions from './UiActions'
 
 export {

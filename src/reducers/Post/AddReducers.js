@@ -1,12 +1,7 @@
 import { handleActions } from 'redux-actions'
-import { PostState } from '../constants/models'
+import { AddState } from '../../constants/models/PostModels'
 
-const PostReducers = handleActions({
-  LIST_POSTS: (state, { payload }) => (
-    state.merge({
-      posts: payload.posts
-    })
-  ),
+const AddReducers = handleActions({
   TITLE_CHANGE: (state, { payload }) => (
     state.merge({
       title: payload.title,
@@ -23,6 +18,6 @@ const PostReducers = handleActions({
       content: payload.content
     })
   )
-}, PostState)
+}, AddState)
 
-export default PostReducers
+export default AddReducers

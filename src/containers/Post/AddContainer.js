@@ -1,27 +1,27 @@
 import { connect } from 'react-redux'
 import { Post } from '../../pages'
 
-import { PostActions } from '../../actions'
+import { AddActions } from '../../actions/Post'
 
 export default connect(
   (state) => ({
-    title: state.getIn(['post', 'title']),
-    titleError: state.getIn(['post', 'titleError']),
-    author: state.getIn(['post', 'author']),
-    content: state.getIn(['post', 'content'])
+    title: state.get('post').getIn(['add', 'title']),
+    titleError: state.get('post').getIn(['add', 'titleError']),
+    author: state.get('post').getIn(['add', 'author']),
+    content: state.get('post').getIn(['add', 'content'])
   }),
   (dispatch) => ({
     addPost: (post) => () => (
-      dispatch(PostActions.AddPost(post))
+      dispatch(AddActions.AddPost(post))
     ),
     titleChange: (event) => (
-      dispatch(PostActions.TitleChange(event.target.value))
+      dispatch(AddActions.TitleChange(event.target.value))
     ),
     initialForm: () => () => (
-      dispatch(PostActions.InitialForm())
+      dispatch(AddActions.InitialForm())
     ),
     contentChange: (event) => (
-      dispatch(PostActions.ContentChange(event.target.value))
+      dispatch(AddActions.ContentChange(event.target.value))
     )
   }),
   (stateProps, dispatchProps, ownProps) => {

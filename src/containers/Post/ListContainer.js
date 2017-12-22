@@ -1,16 +1,16 @@
 import { connect } from 'react-redux'
 import { Post } from '../../pages'
 
-import { PostActions } from '../../actions'
+import { ListActions } from '../../actions/Post'
 
 export default connect(
   (state) => ({
-    posts: state.getIn(['post', 'posts']),
+    posts: state.get('post').getIn(['list', 'posts']),
     isLoaded: state.getIn(['ui', 'isLoaded'])
   }),
   (dispatch) => ({
     listPosts: () => () => (
-      dispatch(PostActions.ListPosts())
+      dispatch(ListActions.ListPosts())
     )
   }),
   (stateProps, dispatchProps, ownProps) => {
