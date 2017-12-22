@@ -2,7 +2,9 @@ import Immutable from 'immutable'
 
 export const PostState = Immutable.fromJS({
   posts: [],
-  post: {title: '', author: '', content: ''}
+  title: '',
+  author: 'ballfish',
+  content: ''
 })
 
 export const UiState = Immutable.fromJS({

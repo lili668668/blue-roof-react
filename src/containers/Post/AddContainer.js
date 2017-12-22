@@ -5,7 +5,9 @@ import { PostActions, UiActions } from '../../actions'
 
 export default connect(
   (state) => ({
-    post: state.getIn(['post', 'post']),
+    title: state.getIn(['post', 'title']),
+    author: state.getIn(['post', 'author']),
+    content: state.getIn(['post', 'content']),
     isLoaded: state.getIn(['ui', 'isLoaded']),
     isSaved: state.getIn(['ui', 'isSaved'])
   }),
@@ -14,20 +16,20 @@ export default connect(
       dispatch(PostActions.AddPost(post))
     ),
     showForm: () => () => (
-        dispatch(UiActions.ShowForm())
+      dispatch(UiActions.ShowForm())
     ),
     titleChange: (event) => (
-        dispatch(PostActions.TitleChange(event.target.value))
+      dispatch(PostActions.TitleChange(event.target.value))
     ),
     contentChange: (event) => (
-        dispatch(PostActions.ContentChange(event.target.value))
+      dispatch(PostActions.ContentChange(event.target.value))
     )
   }),
   (stateProps, dispatchProps, ownProps) => {
-    const { post } = stateProps
-    const { addPost, showForm } = dispatchProps
+    const { title, author, content } = stateProps
+    const { addPost, showForm, testclick } = dispatchProps
     return Object.assign({}, stateProps, dispatchProps, ownProps, {
-      addPost: addPost(post),
+      addPost: addPost({title: title, author: author, content: content}),
       showForm: showForm()
     })
   }

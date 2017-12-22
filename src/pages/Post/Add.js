@@ -12,7 +12,6 @@ class Add extends Component {
   }
 
   render() {
-    console.log(this.props)
     if (this.props.isSaved) {
       return (<Redirect to='/posts' />)
     } else {
@@ -26,15 +25,13 @@ class Add extends Component {
             {!this.props.isLoaded ?
               (<CircularProgress />) : (
                 <div>
-                  <FormControl fullWidth>
-                    <TextField label='標題' margin='normal' required onChange={this.props.titleChange} />
-                  </FormControl>
+                  <TextField label='標題' margin='normal' required fullWidth onChange={this.props.titleChange} />
                   <TextField label='內容' margin='normal' fullWidth multiline onChange={this.props.contentChange} />
                   <Grid container spacing={0} style={{ marginTop: 30 + 'px' }}>
                     <Grid item xs={1}></Grid>
                     <Grid item xs={5}>
                       <Typography align='center'>
-                        <Button color='primary' raised onClick={this.props.addPost({title: this.props.title, author: 'ballfish', content: this.props.content})}>
+                        <Button color='primary' raised onClick={() => this.props.addPost({title: this.props.title, author: this.props.author, content: this.props.content})}>
                           <Save />
                           儲存
                         </Button>

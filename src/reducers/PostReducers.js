@@ -9,12 +9,12 @@ const PostReducers = handleActions({
   ),
   TITLE_CHANGE: (state, { payload }) => (
     state.merge({
-      post: { title: payload.title }
+      title: payload.title
     })
   ),
   CONTENT_CHANGE: (state, { payload }) => (
     state.merge({
-      post: { content: payload.content }
+      content: payload.content
     })
   )
 }, PostState)
