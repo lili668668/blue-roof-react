@@ -6,7 +6,9 @@ import { ListActions } from '../../actions/Post'
 export default connect(
   (state) => ({
     posts: state.get('post').getIn(['list', 'posts']),
-    isLoaded: state.getIn(['ui', 'isLoaded'])
+    isLoaded: state.getIn(['ui', 'isLoaded']),
+    isError: state.getIn(['ui', 'isError']),
+    errorMsg: state.getIn(['ui', 'errorMsg'])
   }),
   (dispatch) => ({
     listPosts: () => () => (

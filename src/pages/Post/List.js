@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom'
 import { Grid, Button } from 'material-ui'
 import { Add } from 'material-ui-icons'
 
-import { Title, CircularProgress, PostCard } from '../../components'
+import { Title, PostCard, Error } from '../../components'
+import { Loading } from '../../components/CircularProgress'
+
 
 class List extends Component {
   componentDidMount() {
@@ -19,15 +21,15 @@ class List extends Component {
               <Title>
                 文章列表
               </Title>
-              {!this.props.isLoaded ? (
-                  <CircularProgress />
-                ) : (
+              <Error isError={this.props.isError} errorMsg={this.props.errorMsg}>
+                <Loading>
+                {
                   this.props.posts.map((post, index) => (
-                      
                       <PostCard key={index} index={index} postId={post.get('_id')} title={post.get('title')} author={post.get('author')} content={post.get('content')} onDelete={(id, index) => this.props.deletePost(id, index)} />
                   )).toJS()
-                )
-              }
+                }
+                </Loading>
+              </Error>
             </Grid>
             <Grid item xs={1} sm={4}></Grid>
           </Grid>

@@ -6,3 +6,5 @@ export const CONTENT_CHANGE = 'CONTENT_CHANGE'
 
 export const LOADING = 'LOADING'
 export const LOADED = 'LOADED'
+export const NO_ERROR = 'NO_ERROR'
+export const ERROR = 'ERROR'

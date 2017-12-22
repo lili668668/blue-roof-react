@@ -13,6 +13,18 @@ const UiReducers = handleActions({
       'isLoaded',
       true
     )
+  ),
+  NO_ERROR: state => (
+    state.merge({
+      isError: false,
+      ErrorMsg: ''
+    })
+  ),
+  ERROR: (state, { payload }) => (
+    state.merge({
+      isError: true,
+      errorMsg: payload.msg
+    })
   )
 }, UiState)
 
