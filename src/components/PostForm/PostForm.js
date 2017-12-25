@@ -9,7 +9,7 @@ import validate from './validate'
 
 class PostForm extends Component {
   static propTypes = {
-    handleSumbit: PropTypes.func,
+    submit: PropTypes.func,
     cancel: PropTypes.func,
     pristine: PropTypes.bool,
     submitting: PropTypes.bool
@@ -17,9 +17,9 @@ class PostForm extends Component {
 
   render() {
     return (
-        <form onSubmit={this.props.handleSumbit}>
-          <Field name='title' component={TextField} required fullWidth />
-          <Field name='content' component={TextField} fullWidth />
+        <form onSubmit={this.props.submit}>
+          <Field label='標題' name='title' component={TextField} required fullWidth validate={validate.required} />
+          <Field label='內容' name='content' component={TextField} fullWidth />
           <Grid container spacing={0} style={{ marginTop: 30 + 'px', marginBottom: 30 + 'px' }}>
             <Grid item xs={1}></Grid>
             <Grid item xs={5}>
@@ -49,6 +49,5 @@ class PostForm extends Component {
 
 
 export default reduxForm({
-  form: 'postForm',
-  validate
+  form: 'postForm'
 })(PostForm)
