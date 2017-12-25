@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom'
 import { Router, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import registerServiceWorker from './registerServiceWorker'
-import store from './store'
+import { store, history } from './store'
 import { Nav } from './components'
 import { Home } from './pages'
 import { PostContainer } from './containers'
-import history from './constants/history'
 
 import './index.css'
 

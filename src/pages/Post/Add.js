@@ -20,7 +20,7 @@ class Add extends Component {
             <Title>
               加入文章
             </Title>
-            <PostForm submit={this.props.addPost} cancel={this.props.cancel} />
+            <PostForm onSubmit={values => this.props.addPost(values)} cancel={this.props.cancel} />
           </Grid>
           <Grid item xs={1} sm={4}></Grid>
         </Grid>

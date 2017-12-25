@@ -1,1 +1,1 @@
-export { default } from './configureStore'
+export { store, history } from './configureStore'

@@ -1,17 +1,21 @@
-import { createAction } from 'redux-actions'
+import { push } from 'react-router-redux'
 import config from '../../config'
 import axios from 'axios'
-import history from '../../constants/history'
 
-export const AddPost = (post) => {
+export const AddPost = (values) => {
   return (dispatch) => {
+    var post = {
+      title: values.get('title'),
+      author: 'ballfish',
+      content: values.get('content')
+    }
     axios.post(`http://${config.api_host}:${config.api_port}/api/post`, post)
-    history.push('/posts')
+      .then(() => dispatch(push('/posts')))
   }
 }
 
 export const Cancel = () => {
   return (dispatch) => {
-    history.push('/posts')
+    dispatch(push('/posts'))
   }
 }
