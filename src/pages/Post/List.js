@@ -14,7 +14,7 @@ class List extends Component {
     isError: PropTypes.bool,
     errorMsg: PropTypes.string,
     isLoaded: PropTypes.bool,
-    posts: PropTypes.array,
+    posts: PropTypes.object,
     deletePost: PropTypes.func
   }
 
