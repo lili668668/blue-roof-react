@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Grid, Button } from 'material-ui'
 import { Add } from 'material-ui-icons'
@@ -8,6 +9,15 @@ import { Loading } from '../../components/CircularProgress'
 
 
 class List extends Component {
+  static propTypes = {
+    listPosts: PropTypes.func,
+    isError: PropTypes.bool,
+    errorMsg: PropTypes.string,
+    isLoaded: PropTypes.bool,
+    posts: PropTypes.array,
+    deletePost: PropTypes.func
+  }
+
   componentDidMount() {
     this.props.listPosts()
   }
