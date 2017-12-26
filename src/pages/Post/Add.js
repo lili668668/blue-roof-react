@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
-import { Grid, Typography } from 'material-ui'
-import { reduxForm } from 'redux-form/immutable'
+import { Grid } from 'material-ui'
 
 import { Title, PostForm } from '../../components'
 

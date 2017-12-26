@@ -1,5 +1,4 @@
 import { createStore, applyMiddleware } from 'redux'
-import { hashHistory } from 'react-router'
 import { routerMiddleware } from 'react-router-redux'
 import reduxThunk from 'redux-thunk'
 import Immutable from 'immutable'
