@@ -4,9 +4,6 @@ export const ListState = Immutable.fromJS({
   posts: []
 })
 
-export const AddState = Immutable.fromJS({
-  title: '',
-  titleError: '',
-  author: 'ballfish',
-  content: ''
+export const ModifyState = Immutable.fromJS({
+  post: {}
 })
