@@ -16,12 +16,12 @@ class PostForm extends Component {
     return (
         <form onSubmit={this.props.handleSubmit}>
           <Field label='標題' name='title' component={TextField} required fullWidth validate={validate.required} style={{ marginTop: 30 + 'px' }} />
-          <Field label='內容' name='content' component={TextField} fullWidth  style={{ marginTop: 30 + 'px' }} />
+          <Field label='內容' name='content' component={TextField} fullWidth multiline style={{ marginTop: 30 + 'px' }} />
           <Grid container spacing={0} style={{ marginTop: 30 + 'px', marginBottom: 30 + 'px' }}>
             <Grid item xs={1}></Grid>
             <Grid item xs={5}>
               <Typography align='center'>
-                <Button type='submit' color='primary' raised disabled={this.props.pristine || this.props.submitting}>
+                <Button type='submit' color='primary' raised disabled={this.props.pristine || this.props.invalid || this.props.submitting}>
                   <Save />
                   儲存
                 </Button>
