@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { reduxForm, Field } from 'redux-form/immutable'
 import { Grid, Button, Typography } from 'material-ui'
-import { Save, Delete } from 'material-ui-icons'
+import { Save, Cancel } from 'material-ui-icons'
 import { TextField } from 'redux-form-material-ui'
 
 import * as validate from './validate'
@@ -30,8 +30,8 @@ class PostForm extends Component {
             <Grid item xs={5}>
               <Typography align='center'>
                 <Button type='button' color='accent' raised onClick={this.props.cancel()}>
-                  <Delete />
-                  捨棄
+                  <Cancel />
+                  取消
                 </Button>
               </Typography>
             </Grid>
