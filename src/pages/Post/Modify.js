@@ -6,9 +6,18 @@ import { Title, PostForm } from '../../components'
 
 class Modify extends Component {
   static propTypes = {
+    fillPost: PropTypes.finc,
     modifyPost: PropTypes.func,
     cancel: PropTypes.func,
+    isError: PropTypes.bool,
+    errorMsg: PropTypes.string,
+    isLoaded: PropTypes.bool,
     post: PropTypes.object
+  }
+
+  componentDidMount() {
+    var id = this.props.match.params.id
+    this.props.fillPost(id)
   }
 
   render() {
@@ -19,7 +28,11 @@ class Modify extends Component {
             <Title>
               修改文章
             </Title>
-            <PostForm onSubmit={values => this.props.modifyPost(values)} cancel={this.props.cancel} initialValues={{ _id: this.props.post._id, title: this.props.post.title, author: this.props.post.author, content: this.props.post.content, created: this.props.post.created}} />
+            <Error isError={this.props.isError} errorMsg={this.props.errorMsg}>
+              <Loading isLoaded={this.props.isLoaded}>
+                <PostForm onSubmit={values => this.props.modifyPost(values)} cancel={this.props.cancel} initialValues={{ _id: this.props.post._id, title: this.props.post.title, author: this.props.post.author, content: this.props.post.content, created: this.props.post.created}} />
+              </Loading>
+            </Error>
           </Grid>
           <Grid item xs={1} sm={4}></Grid>
         </Grid>

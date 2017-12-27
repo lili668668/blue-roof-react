@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Button } from 'material-ui'
 import Card, { CardContent, CardActions } from 'material-ui/Card'
 import { Typography } from 'material-ui'
-import { Delete } from 'material-ui-icons'
+import { Create, Delete } from 'material-ui-icons'
 
 class PostCard extends Component {
   static propTypes = {
@@ -12,6 +12,7 @@ class PostCard extends Component {
     title: PropTypes.string,
     author: PropTypes.string,
     content: PropTypes.string,
+    onModify: PropTypes.func,
     onDelete: PropTypes.func
   }
 
@@ -30,6 +31,10 @@ class PostCard extends Component {
           </Typography>
         </CardContent>
         <CardActions>
+          <Button dense color='primary' onClick={this.props.onModify(this.props.postId)}>
+            <Create />
+            修改
+          </Button>
           <Button dense color='accent' onClick={this.props.onDelete(this.props.postId, this.props.index)}>
             <Delete />
             刪除
