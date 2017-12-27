@@ -1,8 +1,6 @@
 export const LIST_POSTS = 'LIST_POSTS'
 export const DELETE_POST = 'DELETE_POST'
-export const TITLE_CHANGE = 'TITLE_CHANGE'
-export const INITIAL_FORM = 'INITIAL_FORM'
-export const CONTENT_CHANGE = 'CONTENT_CHANGE'
+export const FILL_POST = 'FILL_POST'
 
 export const LOADING = 'LOADING'
 export const LOADED = 'LOADED'

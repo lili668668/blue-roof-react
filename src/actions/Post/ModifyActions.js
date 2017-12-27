@@ -1,6 +1,9 @@
 import { push } from 'react-router-redux'
 import config from '../../config'
 import axios from 'axios'
+import {
+  FILL_POST
+} from '../../constants/actionTypes'
 
 import {
   Loaded,
@@ -15,7 +18,7 @@ export const FillPost = (id) => {
     dispatch(Loading())
     axios.get(`http://${config.api_host}:${config.api_port}/api/post/${id}`)
       .then(res => {
-        dispatch({ type: FILL_POST, payload: { post: res.data['posts'] } })
+        dispatch({ type: FILL_POST, payload: { post: res.data['post'] } })
         dispatch(Loaded())
       })
       .catch(err => dispatch(Error(err)))

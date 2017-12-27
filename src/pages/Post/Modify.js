@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Grid } from 'material-ui'
 
-import { Title, PostForm } from '../../components'
+import { Title, PostForm, Error } from '../../components'
+import { Loading } from '../../components/CircularProgress'
 
 class Modify extends Component {
   static propTypes = {
@@ -30,7 +31,7 @@ class Modify extends Component {
             </Title>
             <Error isError={this.props.isError} errorMsg={this.props.errorMsg}>
               <Loading isLoaded={this.props.isLoaded}>
-                <PostForm onSubmit={values => this.props.modifyPost(values)} cancel={this.props.cancel} initialValues={{ _id: this.props.post._id, title: this.props.post.title, author: this.props.post.author, content: this.props.post.content, created: this.props.post.created}} />
+                <PostForm onSubmit={values => this.props.modifyPost(values)} cancel={this.props.cancel} initialValues={{ _id: this.props.post.get('_id'), title: this.props.post.get('title'), author: this.props.post.get('author'), content: this.props.post.get('content'), created: this.props.post.get('created')}} />
               </Loading>
             </Error>
           </Grid>

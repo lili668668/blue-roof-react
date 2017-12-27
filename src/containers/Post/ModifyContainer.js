@@ -12,7 +12,7 @@ export default connect(
   }),
   (dispatch) => ({
     fillPost: (id) => (
-      dispatch(ModifyActions.fillPost(id))
+      dispatch(ModifyActions.FillPost(id))
     ),
     modifyPost: (values) => (
       dispatch(ModifyActions.ModifyPost(values))

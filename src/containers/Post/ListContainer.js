@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { Post } from '../../pages'
 
-import { ListActions, ModifyActions } from '../../actions/Post'
+import { ListActions } from '../../actions/Post'
 
 export default connect(
   (state) => ({
@@ -18,7 +18,7 @@ export default connect(
       dispatch(ListActions.DeletePost(id, index))
     ),
     modifyPost: (id) => () => (
-      dispatch(ModifyActions.FillPost(id))
+      dispatch(ListActions.ModifyPost(id))
     )
   }),
   (stateProps, dispatchProps, ownProps) => {

@@ -21,7 +21,7 @@ class PostForm extends Component {
             <Grid item xs={1}></Grid>
             <Grid item xs={5}>
               <Typography align='center'>
-                <Button type='submit' color='primary' raised disabled={this.props.pristine || this.props.invalid || this.props.submitting}>
+                <Button type='submit' color='primary' raised disabled={this.props.invalid || this.props.submitting}>
                   <Save />
                   儲存
                 </Button>

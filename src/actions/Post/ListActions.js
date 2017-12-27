@@ -1,3 +1,4 @@
+import { push } from 'react-router-redux'
 import config from '../../config'
 import axios from 'axios'
 import {
@@ -33,5 +34,11 @@ export const DeletePost = (id, index) => {
     axios.delete(`http://${config.api_host}:${config.api_port}/api/post/${id}`)
       .then(() => dispatch(Loaded()))
       .catch(err => dispatch(Error(err)))
+  }
+}
+
+export const ModifyPost = (id) => {
+  return (dispatch) => {
+    dispatch(push(`/post/modify/${id}`))
   }
 }
