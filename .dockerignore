@@ -1,0 +1,14 @@
+# vim temp file
+*.swp
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log
+
+.git/
+.gitignore
+
+Dockerfile
+.dockerignore
