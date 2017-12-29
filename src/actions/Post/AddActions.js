@@ -9,7 +9,7 @@ export const AddPost = (values) => {
       author: 'ballfish',
       content: values.get('content')
     }
-    axios.post(`http://${config.api_host}:${config.api_port}/api/post`, post)
+    return axios.post(`http://${config.api_host}:${config.api_port}/api/post`, post)
       .then(() => dispatch(push('/posts')))
   }
 }
