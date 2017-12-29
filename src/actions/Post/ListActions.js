@@ -17,7 +17,7 @@ export const ListPosts = () => {
   return (dispatch) => {
     dispatch(NoError())
     dispatch(Loading())
-    axios.get(`http://${config.api_host}:${config.api_port}/api/posts`)
+    return axios.get(`http://${config.api_host}:${config.api_port}/api/posts`)
     .then(res => {
       dispatch({ type: LIST_POSTS, payload: { posts: res.data['posts'] } })
       dispatch(Loaded())
@@ -31,7 +31,7 @@ export const DeletePost = (id, index) => {
     dispatch(NoError())
     dispatch(Loading())
     dispatch({ type: DELETE_POST, payload: {index: index} })
-    axios.delete(`http://${config.api_host}:${config.api_port}/api/post/${id}`)
+    return axios.delete(`http://${config.api_host}:${config.api_port}/api/post/${id}`)
       .then(() => dispatch(Loaded()))
       .catch(err => dispatch(Error(err)))
   }
