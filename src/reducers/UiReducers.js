@@ -17,7 +17,7 @@ const UiReducers = handleActions({
   NO_ERROR: state => (
     state.merge({
       isError: false,
-      ErrorMsg: ''
+      errorMsg: ''
     })
   ),
   ERROR: (state, { payload }) => (
