@@ -8,7 +8,7 @@ import {
   NO_ERROR,
   ERROR
 } from '../../src/constants/actionTypes'
-import { UiState } from '../../src/constants/models'
+import { UiState } from '../../src/constants/models/UiModels'
 import { UiActions } from '../../src/actions'
 
 const middlewares = [thunk]
