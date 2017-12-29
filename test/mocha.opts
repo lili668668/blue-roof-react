@@ -1,4 +1,5 @@
 --require babel-register
+--require ./test/init
 --recursive
 --timeout 15000
 --exit

@@ -34,11 +34,11 @@ class List extends Component {
               </Title>
               <Error isError={this.props.isError} errorMsg={this.props.errorMsg}>
                 <Loading isLoaded={this.props.isLoaded}>
-                {
-                  this.props.posts.map((post, index) => (
-                      <PostCard key={index} index={index} postId={post.get('_id')} title={post.get('title')} author={post.get('author')} content={post.get('content')} onDelete={(id, index) => this.props.deletePost(id, index)} onModify={(id) => this.props.modifyPost(id)} />
-                  )).toJS()
-                }
+                  {
+                    this.props.posts.map((post, index) => (
+                        <PostCard key={index} index={index} postId={post.get('_id')} title={post.get('title')} author={post.get('author')} content={post.get('content')} onDelete={(id, index) => this.props.deletePost(id, index)} onModify={(id) => this.props.modifyPost(id)} />
+                    )).toJS()
+                  }
                 </Loading>
               </Error>
             </Grid>
