@@ -5,8 +5,7 @@
     "es2015"
   ],
   plugins: [
-    "transform-class-properties",
-    "react-css-modules"
+    "transform-class-properties"
   ]
 }
 
