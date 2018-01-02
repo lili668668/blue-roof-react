@@ -36,7 +36,7 @@ class List extends Component {
                 <Loading isLoaded={this.props.isLoaded}>
                   {
                     this.props.posts.map((post, index) => (
-                        <PostCard key={index} index={index} postId={post.get('_id')} title={post.get('title')} author={post.get('author')} content={post.get('content')} onDelete={(id, index) => this.props.deletePost(id, index)} onModify={(id) => this.props.modifyPost(id)} />
+                        <PostCard key={index} index={index} postId={post.get('_id')} title={post.get('title')} author={post.get('author')} content={post.get('content')} onDelete={(id, index) => this.props.deletePost(id, index)} onModify={(id) => this.props.modifyPost(id)} textLenLimit={40} />
                     )).toJS()
                   }
                 </Loading>

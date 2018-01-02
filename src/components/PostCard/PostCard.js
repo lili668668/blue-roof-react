@@ -6,6 +6,10 @@ import { Typography } from 'material-ui'
 import { Create, Delete } from 'material-ui-icons'
 
 class PostCard extends Component {
+  cutText(text, len) {
+    return len ? text.substring(0, len) : text
+  }
+
   static propTypes = {
     index: PropTypes.number,
     postId: PropTypes.string,
@@ -13,7 +17,8 @@ class PostCard extends Component {
     author: PropTypes.string,
     content: PropTypes.string,
     onModify: PropTypes.func,
-    onDelete: PropTypes.func
+    onDelete: PropTypes.func,
+    textLenLimit: PropTypes.number
   }
 
   render() {
@@ -27,7 +32,9 @@ class PostCard extends Component {
             {this.props.author}
           </Typography>
           <Typography component='p'>
-            {this.props.content}
+            {
+              this.cutText(this.props.content, this.props.textLenLimit)
+            }
           </Typography>
         </CardContent>
         <CardActions>
