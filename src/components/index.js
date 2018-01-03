@@ -4,6 +4,7 @@ import Nav from './Nav'
 import PostCard from './PostCard'
 import PostForm from './PostForm'
 import Error from './Error'
+import WrapReactMarkdown from './WrapReactMarkdown'
 
 export {
   Title,
@@ -11,5 +12,6 @@ export {
   Nav,
   PostCard,
   PostForm,
-  Error
+  Error,
+  WrapReactMarkdown
 }
