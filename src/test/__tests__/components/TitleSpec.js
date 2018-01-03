@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { expect } from 'chai'
 
-import Title from '../../src/components/Title'
+import Title from '../../../components/Title'
 
 describe('components/<Title />', () => {
   it('send text as children to <Title /> should become #title text', () => {

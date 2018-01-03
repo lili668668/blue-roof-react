@@ -1,6 +1,0 @@
---require babel-register
---require ignore-styles
---require ./test/init
---recursive
---timeout 15000
---exit

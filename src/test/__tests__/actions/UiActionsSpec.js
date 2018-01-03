@@ -7,9 +7,9 @@ import {
   LOADED,
   NO_ERROR,
   ERROR
-} from '../../src/constants/actionTypes'
-import { UiState } from '../../src/constants/models/UiModels'
-import { UiActions } from '../../src/actions'
+} from '../../../constants/actionTypes'
+import { UiState } from '../../../constants/models/UiModels'
+import { UiActions } from '../../../actions'
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)

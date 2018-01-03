@@ -10,10 +10,10 @@ import {
   ERROR,
   LIST_POSTS,
   DELETE_POST
-} from '../../../src/constants/actionTypes'
-import { ListState } from '../../../src/constants/models/PostModels'
-import { ListActions } from '../../../src/actions/Post'
-import mockPosts from '../../mocks/getPostsMock'
+} from '../../../../constants/actionTypes'
+import { ListState } from '../../../../constants/models/PostModels'
+import { ListActions } from '../../../../actions/Post'
+import mockPosts from '../../../mocks/getPostsMock'
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)

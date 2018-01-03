@@ -6,9 +6,9 @@ import {
   LOADED,
   NO_ERROR,
   ERROR
-} from '../../src/constants/actionTypes'
-import ui from '../../src/reducers/UiReducers'
-import { UiState } from '../../src/constants/models/UiModels'
+} from '../../../constants/actionTypes'
+import ui from '../../../reducers/UiReducers'
+import { UiState } from '../../../constants/models/UiModels'
 
 describe('reducers/UiReducers', () => {
   it('should return the initial state', () => {
