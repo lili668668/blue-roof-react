@@ -7,7 +7,11 @@ import { Create, Delete } from 'material-ui-icons'
 
 class PostCard extends Component {
   cutText(text, len) {
-    return len ? text.substring(0, len) : text
+    if (text) {
+      return len ? text.substring(0, len) : text
+    } else {
+      return ''
+    }
   }
 
   static propTypes = {
