@@ -1,8 +1,10 @@
+import { expect } from 'chai'
 import React from 'react'
 import { mount } from 'enzyme'
+import { Typography } from 'material-ui'
 
 import { Read } from '../../../../pages/Post'
-import { Title } from '../../../../components'
+import { Title, WrapReactMarkdown } from '../../../../components'
 
 describe('pages/ <Read /> ', () => {
   let props
@@ -16,7 +18,20 @@ describe('pages/ <Read /> ', () => {
 
   beforeEach(() => {
     props = {
-      post
+      isLoaded: true,
+      isError: false,
+      errorMsg: '',
+      match: {
+        params: {
+          id: ''
+        }
+      },
+      fillPost: () => {},
+      post: {
+        title: 'wow, doge',
+        author: 'ballfish',
+        content: '# Urrr, big dog \n ## wow'
+      }
     }
   })
 
@@ -33,26 +48,15 @@ describe('pages/ <Read /> ', () => {
     })
   })
 
-  describe('rendered <Title />', () => {
+  it('rendered <Title />', () => {
     expect(mountRead().find(Title)).to.have.lengthOf(1)
   })
 
   describe('when post is passed', () => {
-    beforeEach(() => {
-      props.post = {
-        title: 'wow, doge',
-        author: 'ballfish',
-        content: 'Urrr, big dog'
-      }
-    })
-
     it('passes post to the rendered something as children', () => {
-      const title = mountRead().find('#title')
-      const author = mountRead().find('#author')
-      const content = mountRead().find('#content')
-      expect(title.props().children).to.deep.equal(props.post.title)
-      expect(author.props().children).to.deep.equal(props.post.author)
-      expect(content.props().children).to.deep.equal(props.post.content)
+      expect(mountRead().find('#title').last().props().children).to.deep.equal(props.post.title)
+      expect(mountRead().find('#author').last().props().children).to.deep.equal(props.post.author)
+      expect(mountRead().find('#content').last().props().children).to.deep.equal(props.post.content)
     })
   })
 })
