@@ -4,13 +4,13 @@ import Immutable from 'immutable'
 import {
   FILL_POST
 } from '../../../../constants/actionTypes'
-import { ReadReducers as read } from '../../../../reducers/Post'
-import { ReadState } from '../../../constants/models/PostModels'
+import read from '../../../../reducers/Post/ReadReducers'
+import { ReadState } from '../../../../constants/models/PostModels'
 import mockPosts from '../../../mocks/getPostsMock'
 
-describe('reducers/UiReducers', () => {
+describe('reducers/ReadReducers', () => {
   it('should return the initial state', () => {
-    expect(ui(undefined, {})).to.deep.equal(ReadState)
+    expect(read(undefined, {})).to.deep.equal(ReadState)
   })
 
   it('should handle FILL_POST', () => {    
