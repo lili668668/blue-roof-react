@@ -32,11 +32,11 @@ describe('actions/ReadActions', () => {
         const req = moxios.requests.mostRecent()
         req.respondWith({
           status: 200,
-          response: mockPosts['posts'][0]
+          response: { post: mockPosts['posts'][0] }
         })
       })
 
-      const store = mockStore(ListState)
+      const store = mockStore(ReadState)
       return store.dispatch(ReadActions.FillPost()).then(() => {
         const actual = store.getActions()
         expect(actual).to.deep.equal([noErrorExpect, loadingExpect, { type:FILL_POST, payload: { post: mockPosts['posts'][0] } }, loadedExpect])
