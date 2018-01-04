@@ -42,3 +42,9 @@ export const ModifyPost = (id) => {
     dispatch(push(`/post/modify/${id}`))
   }
 }
+
+export const ReadPost = (id) => {
+  return (dispatch) => {
+    dispatch(push(`/post/read/${id}`))
+  }
+}

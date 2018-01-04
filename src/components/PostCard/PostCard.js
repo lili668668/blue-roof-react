@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Button } from 'material-ui'
 import Card, { CardContent, CardActions } from 'material-ui/Card'
 import { Typography } from 'material-ui'
-import { Create, Delete } from 'material-ui-icons'
+import { Visibility, Create, Delete } from 'material-ui-icons'
 
 class PostCard extends Component {
   cutText(text, len) {
@@ -20,6 +20,7 @@ class PostCard extends Component {
     title: PropTypes.string,
     author: PropTypes.string,
     content: PropTypes.string,
+    onRead: PropTypes.func,
     onModify: PropTypes.func,
     onDelete: PropTypes.func,
     textLenLimit: PropTypes.number
@@ -42,6 +43,10 @@ class PostCard extends Component {
           </Typography>
         </CardContent>
         <CardActions>
+          <Button dense color='primary' onClick={this.props.onRead(this.props.postId)}>
+            <Visibility />
+            檢視
+          </Button>
           <Button dense color='primary' onClick={this.props.onModify(this.props.postId)}>
             <Create />
             修改

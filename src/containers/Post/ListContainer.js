@@ -14,6 +14,9 @@ export default connect(
     listPosts: () => () => (
       dispatch(ListActions.ListPosts())
     ),
+    readPost: (id) => () => (
+      dispatch(ListActions.ReadPost(id))
+    ),
     deletePost: (id, index) => () => (
       dispatch(ListActions.DeletePost(id, index))
     ),

@@ -11,7 +11,7 @@ const history = createHistory()
 const store = createStore(
   rootReducer,
   initialState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() && applyMiddleware(reduxThunk, routerMiddleware(history))
+  applyMiddleware(reduxThunk, routerMiddleware(history))
 )
 
 export { store, history }

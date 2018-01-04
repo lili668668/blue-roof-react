@@ -15,6 +15,7 @@ class List extends Component {
     errorMsg: PropTypes.string,
     isLoaded: PropTypes.bool,
     posts: PropTypes.object,
+    readPost: PropTypes.func,
     deletePost: PropTypes.func,
     modifyPost: PropTypes.func
   }
@@ -36,7 +37,7 @@ class List extends Component {
                 <Loading isLoaded={this.props.isLoaded}>
                   {
                     this.props.posts.map((post, index) => (
-                        <PostCard key={index} index={index} postId={post.get('_id')} title={post.get('title')} author={post.get('author')} content={post.get('content')} onDelete={(id, index) => this.props.deletePost(id, index)} onModify={(id) => this.props.modifyPost(id)} textLenLimit={40} />
+                        <PostCard key={index} index={index} postId={post.get('_id')} title={post.get('title')} author={post.get('author')} content={post.get('content')} onRead={(id) => this.props.readPost(id)} onDelete={(id, index) => this.props.deletePost(id, index)} onModify={(id) => this.props.modifyPost(id)} textLenLimit={40} />
                     )).toJS()
                   }
                 </Loading>

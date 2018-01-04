@@ -19,6 +19,7 @@ ReactDOM.render(
           <Route exact path='/posts' component={PostContainer.ListContainer} />
           <Route exact path='/post/add' component={PostContainer.AddContainer} />
           <Route path='/post/modify/:id' component={PostContainer.ModifyContainer} />
+          <Route path='/post/read/:id' component={PostContainer.ReadContainer} />
         </div>
       </Router>
     </Provider>

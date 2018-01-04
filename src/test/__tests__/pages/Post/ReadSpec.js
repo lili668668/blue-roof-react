@@ -2,6 +2,7 @@ import { expect } from 'chai'
 import React from 'react'
 import { mount } from 'enzyme'
 import { Typography } from 'material-ui'
+import Immutable from 'immutable'
 
 import { Read } from '../../../../pages/Post'
 import { Title, WrapReactMarkdown } from '../../../../components'
@@ -27,11 +28,11 @@ describe('pages/ <Read /> ', () => {
         }
       },
       fillPost: () => {},
-      post: {
+      post: Immutable.fromJS({
         title: 'wow, doge',
         author: 'ballfish',
         content: '# Urrr, big dog \n ## wow'
-      }
+      })
     }
   })
 
@@ -54,9 +55,9 @@ describe('pages/ <Read /> ', () => {
 
   describe('when post is passed', () => {
     it('passes post to the rendered something as children', () => {
-      expect(mountRead().find('#title').last().props().children).to.deep.equal(props.post.title)
-      expect(mountRead().find('#author').last().props().children).to.deep.equal(props.post.author)
-      expect(mountRead().find('#content').last().props().children).to.deep.equal(props.post.content)
+      expect(mountRead().find('#title').last().props().children).to.deep.equal(props.post.get('title'))
+      expect(mountRead().find('#author').last().props().children).to.deep.equal(props.post.get('author'))
+      expect(mountRead().find('#content').last().props().children).to.deep.equal(props.post.get('content'))
     })
   })
 })

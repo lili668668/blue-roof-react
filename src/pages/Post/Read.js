@@ -30,9 +30,9 @@ class Read extends Component {
               </Title>
               <Error isError={this.props.isError} errorMsg={this.props.errorMsg}>
                 <Loading isLoaded={this.props.isLoaded}>
-                  <Typography id='title' type='display2' align='center' style={{ padding: 30 + 'px' }}>{ this.props.post.title }</Typography>
-                  <Typography id='author' type='caption' align='left' style={{ padding: 30 + 'px' }}>{ this.props.post.author }</Typography>
-                  <WrapReactMarkdown id='content'>{ this.props.post.content }</WrapReactMarkdown>
+                  <Typography id='title' type='display2' align='center' style={{ padding: 30 + 'px' }}>{ this.props.post.get('title') }</Typography>
+                  <Typography id='author' type='caption' align='left' style={{ padding: 30 + 'px' }}>{ this.props.post.get('author') }</Typography>
+                  <WrapReactMarkdown id='content'>{ this.props.post.get('content') }</WrapReactMarkdown>
                 </Loading>
               </Error>
             </Grid>
