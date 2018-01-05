@@ -25,13 +25,15 @@ class Read extends Component {
           <Grid container spacing={0}>
             <Grid item xs={1} sm={4}></Grid>
             <Grid item xs={10} sm={4}>
-              <Title>
-                檢閱文章
-              </Title>
               <Error isError={this.props.isError} errorMsg={this.props.errorMsg}>
                 <Loading isLoaded={this.props.isLoaded}>
-                  <Typography id='title' type='display2' align='center' style={{ padding: 30 + 'px' }}>{ this.props.post.get('title') }</Typography>
-                  <Typography id='author' type='caption' align='left' style={{ padding: 30 + 'px' }}>{ this.props.post.get('author') }</Typography>
+                  <Title id='title'>{ this.props.post.get('title') }</Title>
+                  <Typography type='subheading' align='left'>
+                    作者：
+                    <span id='author'>
+                      { this.props.post.get('author') }
+                    </span>
+                  </Typography>
                   <WrapReactMarkdown id='content'>{ this.props.post.get('content') }</WrapReactMarkdown>
                 </Loading>
               </Error>
