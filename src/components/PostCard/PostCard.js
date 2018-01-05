@@ -4,11 +4,12 @@ import { Button } from 'material-ui'
 import Card, { CardContent, CardActions } from 'material-ui/Card'
 import { Typography } from 'material-ui'
 import { Visibility, Create, Delete } from 'material-ui-icons'
+import moment from 'moment'
 
 class PostCard extends Component {
   cutText(text, len) {
     if (text) {
-      return len ? text.substring(0, len) : text
+      return len ? text.substring(0, len) + '...' : text
     } else {
       return ''
     }
@@ -19,6 +20,8 @@ class PostCard extends Component {
     postId: PropTypes.string,
     title: PropTypes.string,
     author: PropTypes.string,
+    created: PropTypes.string,
+    updated: PropTypes.string,
     content: PropTypes.string,
     onRead: PropTypes.func,
     onModify: PropTypes.func,
@@ -34,8 +37,19 @@ class PostCard extends Component {
             {this.props.title}
           </Typography>
           <Typography type='subheading' component='h2'>
+            作者：
             {this.props.author}
           </Typography>
+          <Typography type='subheading' component='h2'>
+            建立時間：
+            {moment(this.props.created).format('YYYY/MM/DD HH:mm:SS')}
+          </Typography>
+          {this.props.updated &&
+            <Typography type='subheading' component='h2'>
+              更新時間：
+              {moment(this.props.updated).format('YYYY/MM/DD HH:mm:SS')}
+            </Typography>
+          }
           <Typography component='p'>
             {
               this.cutText(this.props.content, this.props.textLenLimit)

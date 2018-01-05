@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Grid, Typography } from 'material-ui'
+import moment from 'moment'
 
 import { Title, WrapReactMarkdown, Error } from '../../components'
 import { Loading } from '../../components/CircularProgress'
@@ -34,6 +35,20 @@ class Read extends Component {
                       { this.props.post.get('author') }
                     </span>
                   </Typography>
+                  <Typography type='subheading' align='left'>
+                    建立時間：
+                    <span id='created'>
+                      { moment( this.props.post.get('created') ).format('YYYY/MM/DD HH:mm:SS') }
+                    </span>
+                  </Typography>
+                  {this.props.post.get('updated') &&
+                    <Typography type='subheading' align='left'>
+                      更新時間：
+                      <span id='updated'>
+                        { moment( this.props.post.get('updated') ).format('YYYY/MM/DD HH:mm:SS') }
+                      </span>
+                    </Typography>
+                  }
                   <WrapReactMarkdown id='content'>{ this.props.post.get('content') }</WrapReactMarkdown>
                 </Loading>
               </Error>
